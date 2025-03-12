@@ -23,6 +23,7 @@
             <li class="{{ Request::is('admin/logout') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.logout') }}"><i class="fas fa-hand-point-right"></i> <span>Profile</span></a></li>
             <li class="{{ Request::is('admin/slider/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('slider.index') }}"><i class="fas fa-hand-point-right"></i> <span>Slider</span></a></li>
             <li class="{{ Request::is('admin/about/') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.about.edit') }}"><i class="fas fa-hand-point-right"></i> <span>About</span></a></li>
+            <li class="{{ Request::is('admin/feature/') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.feature.edit') }}"><i class="fas fa-hand-point-right"></i> <span>Feature</span></a></li>
 
         </ul>
     </aside>

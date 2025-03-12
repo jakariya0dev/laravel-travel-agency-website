@@ -30,11 +30,11 @@
                                     </div>
                                     <div class="col-md-9">
                                         <div class="mb-4">
-                                            <label class="form-label">Heading</label>
+                                            <label class="form-label">Title</label>
                                             <input value="{{ $about->title }}" name="title" type="text" class="form-control">
                                         </div>
                                         <div class="mb-4">
-                                            <label class="form-label">Sub Heading</label>
+                                            <label class="form-label">Description</label>
                                             <textarea style="display: block; width: 100%; height: 15vh; padding: 10px;" class="block" name="description">
                                                 {{ $about->description }}
                                             </textarea>

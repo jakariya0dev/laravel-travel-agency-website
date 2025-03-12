@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminFeatureController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserDashController;
@@ -61,4 +62,6 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     Route::resource('slider', AdminSliderController::class);
     Route::get('/about/edit',[AdminAboutController::class, 'aboutEdit'])->name('admin.about.edit');
     Route::put('/about/update',[AdminAboutController::class, 'aboutUpdate'])->name('admin.about.update');
+    Route::get('/feature/edit',[AdminFeatureController::class, 'featureEdit'])->name('admin.feature.edit');
+    Route::put('/feature/update',[AdminFeatureController::class, 'featureUpdate'])->name('admin.feature.update');
 });
