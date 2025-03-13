@@ -42,6 +42,7 @@
                                             
                                         </div>
                                         
+                                        <hr>
                                         {{-- two --}}
 
                                         <div class="mb-4">
@@ -61,6 +62,7 @@
                                             
                                         </div>
 
+                                        <hr>
                                         {{-- Three --}}
 
                                         <div class="mb-4">

@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('about_controllers', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('designation');
+            $table->text('comment');
+            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('about_controllers');
+        Schema::dropIfExists('reviews');
     }
 };
