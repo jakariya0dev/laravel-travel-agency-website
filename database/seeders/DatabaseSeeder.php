@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(AboutSeeder::class);
         // $this->call(FeatureSeeder::class);
         // $this->call(ReviewSeeder::class);
+        // $this->call(SliderSeeder::class);
+        // $this->call(BlogCategorySeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',
