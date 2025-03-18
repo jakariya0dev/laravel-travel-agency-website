@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminBlogCategoryController;
+use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminFaqController;
 use App\Http\Controllers\AdminFeatureController;
@@ -67,6 +68,7 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     Route::resource('slider', AdminSliderController::class);
     Route::resource('review', AdminReviewController::class);
     Route::resource('faq', AdminFaqController::class);
+    Route::resource('blog-post', AdminBlogPostController::class);
     Route::resource('blog-category', AdminBlogCategoryController::class);
     Route::get('/about/edit',[AdminAboutController::class, 'aboutEdit'])->name('admin.about.edit');
     Route::put('/about/update',[AdminAboutController::class, 'aboutUpdate'])->name('admin.about.update');
