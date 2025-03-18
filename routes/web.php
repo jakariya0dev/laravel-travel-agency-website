@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 // Frontent Routes
 Route::get('/', [HomepageController::class,'index'])->name('home');
 Route::get('/faq', [PageController::class,'faqPageView'])->name('faq');
+Route::get('/blog', [PageController::class,'blogPageView'])->name('blog');
+Route::get('/blog/category/{id}', [PageController::class,'blogBycategory'])->name('blog.category');
+Route::get('/blog/post/{id}/{slug}', [PageController::class,'blogPostPageView'])->name('blog.post');
 
 // User Auth Routes
 Route::get('/signup', [UserAuthController::class,'signup'])->name('user.signup.view');

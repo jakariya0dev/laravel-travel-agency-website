@@ -11,66 +11,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="item pb_70">
-                    <div class="photo">
-                        <img src="{{ asset('uploads/web/blog-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="text">
-                        <h2>
-                            <a href="post.html">Partnering to create a strong community</a>
-                        </h2>
-                        <div class="short-des">
-                            <p>
-                                In order to create a good community we need to work together. We need to help, support each other and be respectful to each other.
-                            </p>
+
+            @foreach ($blogPosts as $blogPost)
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="item pb_70">
+                        <div class="photo">
+                            <img src="{{ asset('uploads/admin/blog_post'.$blogPost->image) }}" alt="" />
                         </div>
-                        <div class="button-style-2 mt_20">
-                            <a href="post.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="item pb_70">
-                    <div class="photo">
-                        <img src="{{ asset('uploads/web/blog-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="text">
-                        <h2>
-                            <a href="post.html">Turning your emergency donation into instant aid</a>
-                        </h2>
-                        <div class="short-des">
-                            <p>
-                                We are working hard to help the poor people. We are trying to provide them food, shelter, clothing, education and medical assistance.
-                            </p>
-                        </div>
-                        <div class="button-style-2 mt_20">
-                            <a href="post.html">Read More</a>
+                        <div class="text">
+                            <h2>
+                                <a href="post.html">{{ $blogPost->title }}</a>
+                            </h2>
+                            <div class="short-des">
+                                <p>
+                                    {{ $blogPost->content }}
+                                </p>
+                            </div>
+                            <div class="button-style-2 mt_20">
+                                <a href="post.html">Read More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="item pb_70">
-                    <div class="photo">
-                        <img src="{{ asset('uploads/web/blog-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="text">
-                        <h2>
-                            <a href="post.html">Charity provides educational boost for children</a>
-                        </h2>
-                        <div class="short-des">
-                            <p>
-                                In order boost the education of the children, we are providing them books, pens, pencils, notebooks and other necessary things.
-                            </p>
-                        </div>
-                        <div class="button-style-2 mt_20">
-                            <a href="post.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+
         </div>
     </div>
 </div>
