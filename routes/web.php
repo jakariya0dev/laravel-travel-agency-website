@@ -5,15 +5,18 @@ use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminFaqController;
 use App\Http\Controllers\AdminFeatureController;
 use App\Http\Controllers\AdminReviewController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserDashController;
 use Illuminate\Support\Facades\Route;
 
 // Frontent Routes
 Route::get('/', [HomepageController::class,'index'])->name('home');
+Route::get('/faq', [PageController::class,'faqPageView'])->name('faq');
 
 // User Auth Routes
 Route::get('/signup', [UserAuthController::class,'signup'])->name('user.signup.view');
@@ -63,6 +66,7 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     // Homepage 
     Route::resource('slider', AdminSliderController::class);
     Route::resource('review', AdminReviewController::class);
+    Route::resource('faq', AdminFaqController::class);
     Route::resource('blog-category', AdminBlogCategoryController::class);
     Route::get('/about/edit',[AdminAboutController::class, 'aboutEdit'])->name('admin.about.edit');
     Route::put('/about/update',[AdminAboutController::class, 'aboutUpdate'])->name('admin.about.update');
