@@ -76,13 +76,19 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     Route::resource('review', AdminReviewController::class);
     Route::resource('faq', AdminFaqController::class);
     Route::resource('destinations', AdminDestinationController::class);
+
     Route::get('destinations/photo/gallery/{id}',[AdminDestinationGalleryController::class, 'photoGalleryIndex'])->name('admin.d-photo.index');
     Route::post('destinations/photo/gallery/',[AdminDestinationGalleryController::class, 'storeImage'])->name('admin.d-photo.store');
     Route::delete('destinations/photo/gallery/delete/{id}',[AdminDestinationGalleryController::class, 'deleteImage'])->name('admin.d-photo.delete');
+
+    Route::get('destinations/video/gallery/{id}',[AdminDestinationGalleryController::class, 'videoGalleryIndex'])->name('admin.d-video.index');
+    Route::post('destinations/video/gallery/',[AdminDestinationGalleryController::class, 'storeVideo'])->name('admin.d-video.store');
+    Route::delete('destinations/video/gallery/delete/{id}',[AdminDestinationGalleryController::class, 'deleteVideo'])->name('admin.d-video.delete');
+    
     Route::resource('blog-post', AdminBlogPostController::class);
     Route::resource('blog-category', AdminBlogCategoryController::class);
     Route::get('/about/edit',[AdminAboutController::class, 'aboutEdit'])->name('admin.about.edit');
     Route::put('/about/update',[AdminAboutController::class, 'aboutUpdate'])->name('admin.about.update');
     Route::get('/feature/edit',[AdminFeatureController::class, 'featureEdit'])->name('admin.feature.edit');
     Route::put('/feature/update',[AdminFeatureController::class, 'featureUpdate'])->name('admin.feature.update');
-});
+});  

@@ -11,9 +11,24 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header d-flex justify-content-between">
-                <h1>All Destinations</h1>
-                <a class="btn btn-primary btn-lg" href="{{ route('destinations.create') }}">Add New Destinations</a>
+                <h1>Destination Videos</h1>
+                
             </div>
+
+            <form action="{{ route('admin.d-photo.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="section-header d-flex justify-content-between">
+                    
+                    <h1> Add New Destination Video </h1>
+                    <h1>
+                        <input type="text" class="" name="video_url" required>
+                        <input type="hidden" name="destination_id" value="{{ $destinationVideos[0]->id }}">
+                    </h1> 
+                    <input class="btn btn-primary btn-lg" type="submit"></input>
+                        
+                </div>
+            </form>
+            
             <div class="section-body">
                 <div class="row">
                     <div class="col-12">
@@ -25,30 +40,23 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Photo</th>
-                                                <th>Name</th>
-                                                <th>Gallery</th>
+                                                <th>Video</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                        
                                         <tbody>
 
-                                            @foreach ($destinations as $destination)
+                                            @foreach ($destinationVideos as $destinationVideo)
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $destination->featured_photo }}</td>
-                                                    <td>{{ $destination->name }}</td>
-                                                    <td>
-                                                        <a href="{{ route('admin.d-photo.index', $destination->id) }}" class="btn btn-primary">Photo</i></a>
-                                                        <a href="{{ route('admin.d-video.index', $destination->id) }}" class="btn btn-warning">Video</i></a>
-                                                    </td>
+                                                    <td><img src="{{ $destinationVideo->featured_photo }}" alt=""></td>
+                                                    <td>{{ $destinationVideo->photo_name }}</td>
                                                     <td class="pt_10 pb_10">
                                                         
-                                                        <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                                        <form action="{{ route('admin.d-video.delete', $destinationVideo->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                             <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
                                                         </form>
                                                         
