@@ -14,6 +14,21 @@
                 <h1>All Destinations</h1>
                 <a class="btn btn-primary btn-lg" href="{{ route('destinations.create') }}">Add New Destinations</a>
             </div>
+
+            <form action="{{ route('admin.d-photo.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="section-header d-flex justify-content-between">
+                    
+                    <h1> Add New Photo </h1>
+                    <h1>
+                        <input type="file" class="" name="image" required>
+                        <input type="hidden" name="destination_id" value="{{ $destinationPhotos[0]->id }}">
+                    </h1> 
+                    <input class="btn btn-primary btn-lg" type="submit"></input>
+                        
+                </div>
+            </form>
+            
             <div class="section-body">
                 <div class="row">
                     <div class="col-12">
@@ -27,28 +42,22 @@
                                                 <th>SL</th>
                                                 <th>Photo</th>
                                                 <th>Name</th>
-                                                <th>Gallery</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                        
                                         <tbody>
 
-                                            @foreach ($destinations as $destination)
+                                            @foreach ($destinationPhotos as $destinationPhoto)
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $destination->featured_photo }}</td>
-                                                    <td>{{ $destination->name }}</td>
-                                                    <td>
-                                                        <a href="{{ route('admin.d-photo.index', $destination->id) }}" class="btn btn-primary">Photo</i></a>
-                                                        <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">Video</i></a>
-                                                    </td>
+                                                    <td><img src="{{ $destinationPhoto->featured_photo }}" alt=""></td>
+                                                    <td>{{ $destinationPhoto->photo_name }}</td>
                                                     <td class="pt_10 pb_10">
                                                         
-                                                        <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                                        <form action="{{ route('admin.d-photo.delete', $destinationPhoto->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                             <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
                                                         </form>
                                                         

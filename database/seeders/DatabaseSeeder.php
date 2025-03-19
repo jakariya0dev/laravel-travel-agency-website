@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(BlogCategorySeeder::class);
         // $this->call(FaqSeeder::class);
         // $this->call(BlogPostSeeder::class);
-        $this->call(DestinationSeeder::class);
+        // $this->call(DestinationSeeder::class);
+        // $this->call(DestinationPhotoSeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',
