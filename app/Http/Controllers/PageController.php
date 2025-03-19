@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\Destination;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 
@@ -35,5 +36,11 @@ class PageController extends Controller
     public function blogBycategory($id){
         $blogPosts = BlogPost::with('category')->where('id', $id)->get();
         return view('web.blog', compact('blogPosts'));
+    }
+
+    public function destinationsPageView()
+    {
+        $destinations = Destination::paginate(12);
+        return view('web.destinations', compact('destinations'));
     }
 }

@@ -10,7 +10,7 @@
             <div class="main-nav">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="{{ asset('uploads/web/logo.png') }}" alt="">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -22,7 +22,7 @@
                                     <a href="about.html" class="nav-link">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="destinations.html" class="nav-link">Destinations</a>
+                                    <a href="{{ route('destinations') }}" class="nav-link">Destinations</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="packages.html" class="nav-link">Packages</a>

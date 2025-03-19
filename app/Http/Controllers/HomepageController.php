@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\About;
 use App\Models\BlogPost;
+use App\Models\Destination;
 use App\Models\Feature;
 use App\Models\Review;
 use App\Models\Slider;
@@ -18,6 +19,10 @@ class HomepageController extends Controller
         $feature = Feature::first();
         $reviews = Review::get();
         $blogPosts = BlogPost::with('category')->latest()->take(3)->get();
-        return view("web.home", compact('sliders', 'about', 'feature', 'reviews', 'blogPosts'));
+        $popularDestinations = Destination::orderBy('view_count')->take(8)->get();
+
+        // dd($popularDestinations);
+        return view("web.home", 
+        compact('sliders', 'about', 'feature', 'reviews', 'blogPosts', 'popularDestinations'));
     }
 }

@@ -29,7 +29,7 @@
                                 </p>
                             </div>
                             <div class="button-style-2 mt_20">
-                                <a href="post.html">Read More</a>
+                                <a href="{{ route('blog.post', ['id' => $blogPost->id, 'slug' => $blogPost->slug]) }}">Read More</a>
                             </div>
                         </div>
                     </div>

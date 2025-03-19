@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminDestinationController;
 use App\Http\Controllers\AdminFaqController;
 use App\Http\Controllers\AdminFeatureController;
 use App\Http\Controllers\AdminReviewController;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 // Frontent Routes
 Route::get('/', [HomepageController::class,'index'])->name('home');
+Route::get('/destinations', [PageController::class,'destinationsPageView'])->name('destinations');
 Route::get('/faq', [PageController::class,'faqPageView'])->name('faq');
 Route::get('/blog', [PageController::class,'blogPageView'])->name('blog');
 Route::get('/blog/category/{id}', [PageController::class,'blogBycategory'])->name('blog.category');
@@ -71,6 +73,7 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     Route::resource('slider', AdminSliderController::class);
     Route::resource('review', AdminReviewController::class);
     Route::resource('faq', AdminFaqController::class);
+    Route::resource('destinations', AdminDestinationController::class);
     Route::resource('blog-post', AdminBlogPostController::class);
     Route::resource('blog-category', AdminBlogCategoryController::class);
     Route::get('/about/edit',[AdminAboutController::class, 'aboutEdit'])->name('admin.about.edit');
