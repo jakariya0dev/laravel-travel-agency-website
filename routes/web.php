@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminFeatureController;
 use App\Http\Controllers\AdminReviewController;
 use App\Http\Controllers\DestinationGalleryController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserDashController;
@@ -76,6 +77,7 @@ Route::middleware('admin')->prefix('admin')->group(function (){
     Route::resource('review', AdminReviewController::class);
     Route::resource('faq', AdminFaqController::class);
     Route::resource('destinations', AdminDestinationController::class);
+    Route::resource('package', PackageController::class);
 
     Route::get('destinations/photo/gallery/{id}',[AdminDestinationGalleryController::class, 'photoGalleryIndex'])->name('admin.d-photo.index');
     Route::post('destinations/photo/gallery/',[AdminDestinationGalleryController::class, 'storeImage'])->name('admin.d-photo.store');
