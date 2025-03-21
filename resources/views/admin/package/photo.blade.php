@@ -15,14 +15,14 @@
                 <a class="btn btn-primary btn-lg" href="{{ route('destinations.create') }}">Add New Destinations</a>
             </div>
 
-            <form action="{{ route('admin.d-photo.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.p-photo.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="section-header d-flex justify-content-between">
                     
                     <h1> Add New Photo </h1>
                     <h1>
                         <input type="file" class="" name="image" required>
-                        <input type="hidden" name="destination_id" value="{{ $destinationPhotos[0]->id }}">
+                        <input type="hidden" name="package_id" value="{{ $packagePhotos[0]->package_id }}">
                     </h1> 
                     <input class="btn btn-primary btn-lg" type="submit"></input>
                         
@@ -48,14 +48,14 @@
                                        
                                         <tbody>
 
-                                            @foreach ($destinationPhotos as $destinationPhoto)
+                                            @foreach ($packagePhotos as $packagePhoto)
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td><img src="{{ $destinationPhoto->featured_photo }}" alt=""></td>
-                                                    <td>{{ $destinationPhoto->photo_name }}</td>
+                                                    <td><img src="{{ $packagePhoto->photo }}" alt=""></td>
+                                                    <td>{{ $packagePhoto->photo }}</td>
                                                     <td class="pt_10 pb_10">
                                                         
-                                                        <form action="{{ route('admin.d-photo.delete', $destinationPhoto->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                                        <form action="{{ route('admin.p-photo.delete', $packagePhoto->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
@@ -64,10 +64,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                           
-                                            
 
-                                            
                                         </tbody>
                                     </table>
                                 </div>

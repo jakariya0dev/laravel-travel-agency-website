@@ -22,7 +22,7 @@
                     <h1> Add New Photo </h1>
                     <h1>
                         <input type="file" class="" name="image" required>
-                        <input type="hidden" name="destination_id" value="{{ $destinationPhotos[0]->id }}">
+                        <input type="hidden" name="destination_id" value="{{ $destinationPhotos[0]->destination_id }}">
                     </h1> 
                     <input class="btn btn-primary btn-lg" type="submit"></input>
                         

@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header d-flex justify-content-between">
-                <h1>All Oackages</h1>
+                <h1>All Packages</h1>
                 <a class="btn btn-primary btn-lg" href="{{ route('package.create') }}">Add New Package</a>
             </div>
             <div class="section-body">
@@ -40,8 +40,11 @@
                                                     <td>{{ $package->featured_photo }}</td>
                                                     <td>{{ $package->title }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.d-photo.index', $package->id) }}" class="btn btn-primary">Photo</i></a>
-                                                        <a href="{{ route('admin.d-video.index', $package->id) }}" class="btn btn-warning">Video</i></a>
+                                                        <a href="{{ route('admin.p-photo.index', $package->id) }}" class="btn btn-primary">Photo</i></a>
+                                                        <a href="{{ route('admin.p-video.index', $package->id) }}" class="btn btn-primary">Video</i></a>
+                                                        <a href="{{ route('admin.p-include.index', $package->id) }}" class="btn btn-warning">Includes</i></a>
+                                                        <a href="{{ route('admin.p-exclude.index', $package->id) }}" class="btn btn-warning">Excludes</i></a>
+                                                        <a href="{{ route('package-faq.index', $package->id) }}" class="btn btn-info">FAQs</i></a>
                                                     </td>
                                                     <td class="pt_10 pb_10">
                                                         

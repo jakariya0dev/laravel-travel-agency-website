@@ -26,7 +26,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(DestinationSeeder::class);
         // $this->call(DestinationPhotoSeeder::class);
         // $this->call(DestinationVideoSeeder::class);
-        $this->call(TourPackageSeeder::class);
+        // $this->call(TourPackageSeeder::class);
+        // $this->call(PackagePhotoSeeder::class);
+        // $this->call(PackageVideoSeeder::class);
+        // $this->call(PackageIncludeSeeder::class);
+        // $this->call(PackageFaqSeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',
